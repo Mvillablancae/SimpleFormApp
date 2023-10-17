@@ -1,2 +1,3 @@
-# SimpleFormApp
-A simple form app
+# simple_form
+
+A new Flutter project.
