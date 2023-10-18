@@ -57,7 +57,7 @@ class _FormPageState extends State<FormPage> {
                           border: textInputDecoration,
                         ),
                         inputFormatters: [
-                          FilteringTextInputFormatter(RegExp("/^[a-z ,.'-]+\$/i"), allow: true)
+                          FilteringTextInputFormatter(RegExp("[a-zA-Z .'-]"), allow: true)
                         ],
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.name,
@@ -102,8 +102,8 @@ class _FormPageState extends State<FormPage> {
                           border: textInputDecoration,
                         ),
                         inputFormatters: [
-                          FilteringTextInputFormatter(RegExp("[a-zA-Z0-9@.]"), allow: true),
-                          LengthLimitingTextInputFormatter(8),
+                          FilteringTextInputFormatter(RegExp("[a-zA-Z0-9@._]"), allow: true),
+                          LengthLimitingTextInputFormatter(25),
                         ],
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.emailAddress,
@@ -176,9 +176,10 @@ class _FormPageState extends State<FormPage> {
                         onEditingComplete: () {
                           if (_formKey.currentState!.validate()) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Guardando información'),
-                                duration: Duration(seconds: 1),
+                              SnackBar(
+                                backgroundColor: Colors.green[600],
+                                content: const Text('Guardando información'),
+                                duration: const Duration(seconds: 1),
                               ),
                             );
                             Future.delayed(const Duration(seconds: 1)).then(
@@ -203,19 +204,35 @@ class _FormPageState extends State<FormPage> {
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Guardando información')),
+                            SnackBar(
+                              backgroundColor: Colors.green[600],
+                              content: const Text('Guardando información'),
+                              duration: const Duration(seconds: 1),
+                            ),
                           );
-                          await Future.delayed(Duration(seconds: 1));
-                          Navigator.of(context)
-                              .pushReplacement(MaterialPageRoute(builder: (context) {
-                            return FormInformationPage(
-                              address: addressController.value.text,
-                              email: emailController.value.text,
-                              name: nameController.value.text,
-                              phoneNumber: phoneController.value.text,
-                              rut: rutController.value.text,
-                            );
-                          }));
+                          Future.delayed(const Duration(seconds: 1)).then(
+                            (value) => Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return FormInformationPage(
+                                    address: addressController.value.text,
+                                    email: emailController.value.text,
+                                    name: nameController.value.text,
+                                    phoneNumber: phoneController.value.text,
+                                    rut: rutController.value.text,
+                                  );
+                                },
+                              ),
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              backgroundColor: Colors.red[800],
+                              content: const Text('Por favor, revise la información.'),
+                              duration: const Duration(seconds: 1),
+                            ),
+                          );
                         }
                       },
                       child: const Text('Guardar'),
