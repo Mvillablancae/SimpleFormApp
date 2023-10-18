@@ -54,11 +54,8 @@ You can return to the main page at the end by using the accept button.
 
 # Screenshots
 
-[]
-Main Page
+![Main Page](https://github.com/Mvillablancae/SimpleFormApp/blob/main/assets/screenshots/ss1.jpg)
 
-[]
-Form Page
+![Form Page](https://github.com/Mvillablancae/SimpleFormApp/blob/main/assets/screenshots/ss2.jpg)
 
-[]
-Submission Display Page
+![Submission Display Page](https://github.com/Mvillablancae/SimpleFormApp/blob/main/assets/screenshots/ss3.jpg)
