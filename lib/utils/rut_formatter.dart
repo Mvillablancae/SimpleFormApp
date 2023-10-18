@@ -7,7 +7,7 @@ class RutFormatter extends TextInputFormatter {
     switch (newValue.text.length) {
       case (4):
         formattedRut = newValue.text.replaceAll('.', '');
-        formattedRut = formattedRut[0] + '.' + formattedRut.substring(1, 4);
+        formattedRut = formattedRut[0] + '.' + formattedRut.substring(1, formattedRut.length);
         break;
       case (6):
         formattedRut = newValue.text.replaceAll('.', '');
@@ -20,7 +20,7 @@ class RutFormatter extends TextInputFormatter {
             formattedRut.substring(0, 3) + '.' + formattedRut.substring(3, formattedRut.length);
         break;
       case (8):
-        if (oldValue.text.length == 7) {
+        if (newValue.text.length > oldValue.text.length) {
           formattedRut = newValue.text.replaceAll('.', '');
           formattedRut = formattedRut[0] +
               '.' +
@@ -33,7 +33,7 @@ class RutFormatter extends TextInputFormatter {
         }
         break;
       case (9):
-        if (oldValue.text.length == 8) {
+        if (newValue.text.length > oldValue.text.length) {
           formattedRut = newValue.text.replaceAll('.', '');
           formattedRut = formattedRut.replaceAll('-', '');
           formattedRut = formattedRut[0] +
@@ -49,7 +49,7 @@ class RutFormatter extends TextInputFormatter {
         }
         break;
       case (10):
-        if (oldValue.text.length == 9) {
+        if (newValue.text.length > oldValue.text.length) {
           formattedRut = newValue.text.replaceAll('.', '');
           formattedRut = formattedRut.replaceAll('-', '');
           formattedRut = formattedRut[0] +
