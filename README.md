@@ -1,18 +1,29 @@
 # Flutter Form Submission App
-Welcome to the Flutter Form Submission App! This simple Flutter application allows users to fill out a form from a drawer that pops out on the main page. After filling out the form, the app displays the submitted information on a new page.
+Welcome to the Flutter Form Submission App! 
+This simple Flutter application allows users to fill out a form from a drawer that pops out on the main page. After filling out the form, the app displays the submitted information on a new page.
 
 Table of Contents
-    Features
-    Getting Started
-    How to Use
-    Screenshots
-    Contributing
-    License
-    Features
+
+[Features](#Features)
+
+[Getting Started](#Getting-Started)
+
+[How to Use](#How-to-Use)
+
+[Screenshots](#Screenshots)
+
+
+
+
+
+# Features
+
+
 A user-friendly interface for entering information via a form.
 Simple navigation between the main page, the form, and the submission display.
 Clear and intuitive design for an excellent user experience.
-Getting Started
+
+# Getting Started
 To run this app, ensure that you have Flutter and Dart installed on your system. If you haven't already, you can follow the official Flutter installation guide here.
 
 Clone this repository:
@@ -28,7 +39,8 @@ Get the necessary packages:
 Run the app on an emulator or connected device:
 
     flutter run
-How to Use
+
+# How to Use
 
 1 - Launch the app, and you'll be greeted with the main page.
 
@@ -40,7 +52,7 @@ How to Use
 
 You can return to the main page at the end by using the accept button.
 
-Screenshots
+# Screenshots
 
 []
 Main Page
